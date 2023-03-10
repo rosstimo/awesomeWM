@@ -44,8 +44,10 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-
+-- built in themes in /usr/share/awesome/themes/default/
+-- default | gtk | sky | xresources | zenburn  
+--beautiful.init(gears.filesystem.get_themes_dir() .. "/home/tim/.config/awesome/theme/theme.lua")
+beautiful.init("/home/tim/.config/awesome/theme/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
 editor = os.getenv("EDITOR") or "vim"
