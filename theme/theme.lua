@@ -19,7 +19,7 @@ retro.c1 = "#666547"
 -- 	"#fffeb3"
 local theme = {}
 
-theme.font          = "sans 8"
+theme.font          = "sans 12"
 
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
@@ -35,7 +35,7 @@ theme.fg_minimize   = "#ffffff"
 theme.useless_gap   = dpi(10)
 theme.border_width  = dpi(3)
 theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_focus  = "#6fcb9f"
 theme.border_marked = "#91231c"
 
 -- There are other variable sets
@@ -52,7 +52,7 @@ theme.border_marked = "#91231c"
 --theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
-local taglist_square_size = dpi(4)
+local taglist_square_size = dpi(0)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
 )
