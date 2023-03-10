@@ -313,6 +313,8 @@ globalkeys = gears.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
         {description = "run prompt", group = "launcher"}),
+    awful.key({ "Mod1"}, "space", function() awful.spawn(string.format("dmenu_run")) end,
+        {description = "show dmenu", group = "launcher"}),
 
     awful.key({ modkey }, "x",
         function ()
@@ -336,7 +338,7 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end,
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
