@@ -10,6 +10,13 @@ local gfs = require("gears.filesystem")
 --local themes_path = gfs.get_themes_dir()
 local themes_path = "/home/tim/.config/awesome/theme"
 
+local retro = {}
+
+retro.c1 = "#666547"
+-- 	"#fb2e01"
+-- 	"#6fcb9f"
+-- 	"#ffe28a"
+-- 	"#fffeb3"
 local theme = {}
 
 theme.font          = "sans 8"
@@ -25,8 +32,8 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
+theme.useless_gap   = dpi(10)
+theme.border_width  = dpi(3)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
@@ -108,7 +115,7 @@ theme.layout_magnifier = themes_path.."/layouts/magnifierw.png"
 theme.layout_max = themes_path.."/layouts/maxw.png"
 theme.layout_fullscreen = themes_path.."/layouts/fullscreenw.png"
 theme.layout_tilebottom = themes_path.."/layouts/tilebottomw.png"
-theme.layout_tileleft   = themes_path.."/layouts/tileleftw.png"
+theme.layout_tileleft = themes_path.."/layouts/tileleftw.png"
 theme.layout_tile = themes_path.."/layouts/tilew.png"
 theme.layout_tiletop = themes_path.."/layouts/tiletopw.png"
 theme.layout_spiral  = themes_path.."/layouts/spiralw.png"
@@ -129,4 +136,3 @@ theme.icon_theme = nil
 
 return theme
 
--- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
