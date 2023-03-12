@@ -20,7 +20,6 @@ retro.c1 = "#666547"
 local theme = {}
 
 theme.font          = "sans 12"
-
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#535d6c"
 theme.bg_urgent     = "#ff0000"
@@ -37,6 +36,20 @@ theme.border_width  = dpi(3)
 theme.border_normal = "#000000"
 theme.border_focus  = "#6fcb9f"
 theme.border_marked = "#91231c"
+
+
+-- hotkeys_bg
+-- theme.hotkeys_fg
+-- theme.hotkeys_border_width
+-- theme.hotkeys_border_color
+-- theme.hotkeys_shape
+-- theme.hotkeys_opacity
+-- theme.hotkeys_modifiers_fg
+-- theme.hotkeys_label_bg
+-- theme.hotkeys_label_fg
+-- theme.hotkeys_group_margin
+theme.hotkeys_font  = "Monospace bold 12"
+theme.hotkeys_description_font="Monospace 12"
 
 -- There are other variable sets
 -- overriding the  one when
