@@ -39,7 +39,7 @@ do
         in_error = false
     end)
 end
--- }}}
+-- }}} End Error handling
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -78,7 +78,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- }}}
+-- }}} End Variable definitions
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
@@ -100,7 +100,7 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
+-- }}} End Menu
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
@@ -217,7 +217,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
--- }}}
+-- }}} End Wibar
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
@@ -225,7 +225,7 @@ root.buttons(gears.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
+-- }}} End Mouse Bindings
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -441,7 +441,7 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
--- }}}
+-- }}} End Key Bindings
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
@@ -499,7 +499,7 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 }
--- }}}
+-- }}} End Rules
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -563,4 +563,4 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
+-- }}} End Signals
