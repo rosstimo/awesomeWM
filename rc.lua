@@ -16,6 +16,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- Display managment
+local xrandr = require("xrandr")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -273,6 +276,9 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+
+    awful.key({ modkey,          }, "d", function () xrandr.xrandr()   end,
+        {description = "Dispalay manegment", group = "display"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
