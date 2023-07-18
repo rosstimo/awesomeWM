@@ -279,7 +279,7 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     awful.key({ modkey,          }, "d", function () xrandr.xrandr()   end,
-        {description = "Dispalay manegment", group = "display"}),
+        {description = "Dispalay managment", group = "display"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
