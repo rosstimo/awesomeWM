@@ -8,4 +8,7 @@ spawn.with_shell("/usr/bin/blueman-applet")
 spawn.with_shell("killall pa-applet")
 os.execute("sleep 0.25")
 spawn.with_shell("/usr/bin/pa-applet")
+spawn.with_shell("killall kmonad")
+os.execute("sleep 0.25")
+spawn.with_shell("$HOME/.local/bin/kcheck.sh")
 
