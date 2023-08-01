@@ -38,16 +38,18 @@ theme.border_focus  = "#6fcb9f"
 theme.border_marked = "#91231c"
 
 
--- hotkeys_bg
--- theme.hotkeys_fg
--- theme.hotkeys_border_width
+theme.hotkeys_bg = "#303030"
+theme.hotkeys_fg = "#ffffff"
+theme.hotkeys_border_width = dpi(0)
 -- theme.hotkeys_border_color
 -- theme.hotkeys_shape
--- theme.hotkeys_opacity
--- theme.hotkeys_modifiers_fg
--- theme.hotkeys_label_bg
--- theme.hotkeys_label_fg
--- theme.hotkeys_group_margin
+-- theme.hotkeys_opacit
+theme.hotkeys_modifiers_fg = "#88ffff"
+theme.hotkeys_label_bg = "#aaaaaa"
+theme.hotkeys_label_fg = "#000000"
+theme.hotkeys_group_margin = dpi(50)
+-- theme.hotkeys_width = dpi(1920)
+-- theme.hotkeys_height = dpi(1800)
 theme.hotkeys_font  = "Monospace bold 12"
 theme.hotkeys_description_font="Monospace 12"
 
@@ -83,8 +85,8 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."/submenu.png"
-theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_height = dpi(30)
+theme.menu_width  = dpi(200)
 
 -- You can add as many variables as
 -- you wish and access them by using

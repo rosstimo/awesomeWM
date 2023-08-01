@@ -278,9 +278,11 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
-    awful.key({ modkey,          }, "d", function () xrandr.xrandr()   end,
-        {description = "Dispalay managment", group = "display"}),
+    -- awful.key({ modkey,          }, "d", function () xrandr.xrandr()   end,
+    --     {description = "Dispalay manegment", group = "display"}),
 
+    awful.key({ modkey,          }, "d", function () awful.spawn(string.format("arandr"))   end,
+        {description = "Display management", group = "screen"}),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
         {description = "open a terminal", group = "launcher"}),
@@ -355,9 +357,9 @@ clientkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
         {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-        {description = "move client to next screen", group = "client"}),
+        {description = "move client to next screen", group = "screen"}),
      awful.key({ modkey, "Shift"  }, "o",      function (c) c:move_to_screen(c.screen.index-1) end,
-        {description = "move client to previous screen", group = "client"}),
+        {description = "move client to previous screen", group = "screen"}),
 
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
         {description = "toggle keep on top", group = "client"}),
