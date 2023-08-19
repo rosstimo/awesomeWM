@@ -16,6 +16,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- Display managment
+local xrandr = require("xrandr")
+-- autostart 
+require("autostart")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -39,7 +43,7 @@ do
         in_error = false
     end)
 end
--- }}}
+-- }}} End Error handling
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -49,6 +53,7 @@ end
 beautiful.init("/home/tim/.config/awesome/theme/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
+browser = os.getenv("BROWSER") or "firefox"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -78,7 +83,7 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- }}}
+-- }}} End Variable definitions
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
@@ -100,7 +105,7 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
+-- }}} End Menu
 
 -- Keyboard map indicator and switcher
 mykeyboardlayout = awful.widget.keyboardlayout()
@@ -217,7 +222,7 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
--- }}}
+-- }}} End Wibar
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
@@ -225,7 +230,7 @@ root.buttons(gears.table.join(
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
--- }}}
+-- }}} End Mouse Bindings
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
@@ -250,8 +255,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-        {description = "show main menu", group = "awesome"}),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --     {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -273,9 +278,16 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
+    -- awful.key({ modkey,          }, "d", function () xrandr.xrandr()   end,
+    --     {description = "Dispalay manegment", group = "display"}),
+
+    awful.key({ modkey,          }, "d", function () awful.spawn(string.format("arandr"))   end,
+        {description = "Display management", group = "screen"}),
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
         {description = "open a terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "w", function () awful.spawn(browser) end,
+        {description = "open web browser", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
         {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -345,7 +357,10 @@ clientkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
         {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-        {description = "move to screen", group = "client"}),
+        {description = "move client to next screen", group = "screen"}),
+     awful.key({ modkey, "Shift"  }, "o",      function (c) c:move_to_screen(c.screen.index-1) end,
+        {description = "move client to previous screen", group = "screen"}),
+
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
         {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
@@ -441,7 +456,7 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
--- }}}
+-- }}} End Key Bindings
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
@@ -499,7 +514,7 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 }
--- }}}
+-- }}} End Rules
 
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
@@ -563,4 +578,4 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
+-- }}} End Signals
